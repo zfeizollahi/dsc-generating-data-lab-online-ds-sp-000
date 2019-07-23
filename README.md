@@ -39,7 +39,7 @@ def reg_simulation(n, random_state):
     pass
 
 
-random_state = None
+random_state = random_state = np.random.RandomState(42)
 
 for n in [10, 25, 40, 50, 100, 200]:
     reg_simulation(n, random_state)
