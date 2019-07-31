@@ -47,7 +47,31 @@ for n in [10, 25, 40, 50, 100, 200]:
 
 
 ```python
+# __SOLUTION__ 
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_regression
+from sklearn.linear_model import LinearRegression
+import numpy as np
+plt.xkcd()
+def reg_simulation(n, random_state):
+    X, y = make_regression(n_samples=100, n_features=1, noise=n, random_state=random_state)
 
+    plt.scatter(X[:, 0], y, color="red", s=10, label="Data")
+
+    reg = LinearRegression().fit(X, y)
+    plt.plot(X[:, 0], reg.predict(X), color="black", label="Model")
+    plt.title("Noise: " +str (n)+ ", R-Squared: " + str(round(reg.score(X,y), 2)))
+    plt.tick_params(labelbottom='off', labelleft='off')
+    plt.xlabel("Variable X")
+    plt.ylabel("Variable Y")
+    plt.legend()
+    plt.show()
+
+random_state = np.random.RandomState(42)
+
+
+for n in [10, 25, 40, 50, 100, 200]:
+    reg_simulation(n, random_state)
 ```
 
 
@@ -76,6 +100,41 @@ for n in [10, 25, 40, 50, 100, 200]:
 
 
 ```python
+
+```
+
+
+![png](index_files/index_5_0.png)
+
+
+
+![png](index_files/index_5_1.png)
+
+
+
+![png](index_files/index_5_2.png)
+
+
+
+![png](index_files/index_5_3.png)
+
+
+
+![png](index_files/index_5_4.png)
+
+
+
+![png](index_files/index_5_5.png)
+
+
+
+```python
+# __SOLUTION__ 
+# You comments here 
+```
+
+
+```python
 # You comments here 
 ```
 
@@ -94,6 +153,71 @@ For this you need to perform following tasks
 * Pass a fixed random state and values from [0,0.5, 1, 1.5, 2, 2.5, 3]] as standard deviation (std) values iteratively to the function above.
 
 * Inspect and comment on the output.
+
+
+
+```python
+# __SOLUTION__ 
+from sklearn.datasets import make_blobs
+from sklearn.svm import LinearSVC
+
+def classification_simulation(random_state, std):
+    X, y = make_blobs(n_samples=100, n_features=2, centers=2, cluster_std=std, random_state=random_state)
+
+    plt.scatter(X[y == 0, 0], X[y == 0, 1], color="red", s=10, label="Class A")
+    plt.scatter(X[y == 1, 0], X[y == 1, 1], color="blue", s=10, label="Class B")
+
+    clf = LinearSVC().fit(X, y)
+
+    # get the separating hyperplane
+    w = clf.coef_[0]
+    a = -w[0] / w[1]
+    xx = np.linspace(-10, 10)
+    yy = a * xx - (clf.intercept_[0]) / w[1]
+
+    # plot the line, the points, and the nearest vectors to the plane
+    plt.plot(xx, yy, 'k-', color="black", label="Model")
+
+    plt.tick_params(labelbottom='off', labelleft='off')
+    plt.xlabel("X")
+    plt.ylabel("Y")
+    plt.legend()
+    plt.show()
+
+random_state = np.random.RandomState(2)
+
+for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
+    classification_simulation(random_state, std)
+
+
+```
+
+
+![png](index_files/index_9_0.png)
+
+
+
+![png](index_files/index_9_1.png)
+
+
+
+![png](index_files/index_9_2.png)
+
+
+
+![png](index_files/index_9_3.png)
+
+
+
+![png](index_files/index_9_4.png)
+
+
+
+![png](index_files/index_9_5.png)
+
+
+
+![png](index_files/index_9_6.png)
 
 
 
@@ -130,35 +254,41 @@ for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
 
 
 ```python
+# __SOLUTION__ 
+# You comments here 
+```
+
+
+```python
 
 ```
 
 
-![png](index_files/index_8_0.png)
+![png](index_files/index_12_0.png)
 
 
 
-![png](index_files/index_8_1.png)
+![png](index_files/index_12_1.png)
 
 
 
-![png](index_files/index_8_2.png)
+![png](index_files/index_12_2.png)
 
 
 
-![png](index_files/index_8_3.png)
+![png](index_files/index_12_3.png)
 
 
 
-![png](index_files/index_8_4.png)
+![png](index_files/index_12_4.png)
 
 
 
-![png](index_files/index_8_5.png)
+![png](index_files/index_12_5.png)
 
 
 
-![png](index_files/index_8_6.png)
+![png](index_files/index_12_6.png)
 
 
 
