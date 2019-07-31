@@ -87,7 +87,7 @@ As above, we shall now try to run a classification problem using a Linear SVM cl
 
 For this you need to perform following tasks 
 * Create classification_simulation function with random state and std (standard deviation) as input parameters
-    * Use make_blobs() to create a classification dataset with 100 samples, 2 features/centres and use provided random state and standard deviation values for placing data
+    * Use `make_blobs()` to create a classification dataset with 100 samples, 2 features/centres and use provided random state and standard deviation values for placing data
     * Plot the values on a scatter plot, while color coding both classes
     * Use unsupervised SVM to classify the data (given)
     * Calculate the decision boundary from SVM output (given)
