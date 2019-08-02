@@ -27,6 +27,7 @@ Create a function `reg_simulation()` to run a regression simulation creating a n
 
 ```python
 import matplotlib.pyplot as plt
+%matplotlib inline
 from sklearn.datasets import make_regression
 from sklearn.linear_model import LinearRegression
 import numpy as np
@@ -39,7 +40,7 @@ def reg_simulation(n, random_state):
     reg = LinearRegression().fit(X, y)
     plt.plot(X[:, 0], reg.predict(X), color="black", label="Model")
     plt.title("Noise: " +str (n)+ ", R-Squared: " + str(round(reg.score(X,y), 2)))
-    plt.tick_params(labelbottom='off', labelleft='off')
+    plt.tick_params(labelbottom=False, labelleft=False)
     plt.xlabel("Variable X")
     plt.ylabel("Variable Y")
     plt.legend()
@@ -109,7 +110,8 @@ def classification_simulation(random_state, std):
     plt.scatter(X[y == 0, 0], X[y == 0, 1], color="red", s=10, label="Class A")
     plt.scatter(X[y == 1, 0], X[y == 1, 1], color="blue", s=10, label="Class B")
 
-    clf = LinearSVC().fit(X, y)
+    # Increase iterations to ensure convergence
+    clf = LinearSVC(max_iter=4000).fit(X, y)
 
     # get the separating hyperplane
     w = clf.coef_[0]
@@ -120,7 +122,7 @@ def classification_simulation(random_state, std):
     # plot the line, the points, and the nearest vectors to the plane
     plt.plot(xx, yy, 'k-', color="black", label="Model")
 
-    plt.tick_params(labelbottom='off', labelleft='off')
+    plt.tick_params(labelbottom=False, labelleft=False)
     plt.xlabel("X")
     plt.ylabel("Y")
     plt.legend()
@@ -130,8 +132,6 @@ random_state = np.random.RandomState(2)
 
 for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
     classification_simulation(random_state, std)
-
-
 ```
 
 
