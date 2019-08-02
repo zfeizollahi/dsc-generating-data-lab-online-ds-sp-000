@@ -46,32 +46,27 @@ for n in [10, 25, 40, 50, 100, 200]:
 ```
 
 
-```python
-
-```
-
-
-![png](index_files/index_4_0.png)
+![png](index_files/index_3_0.png)
 
 
 
-![png](index_files/index_4_1.png)
+![png](index_files/index_3_1.png)
 
 
 
-![png](index_files/index_4_2.png)
+![png](index_files/index_3_2.png)
 
 
 
-![png](index_files/index_4_3.png)
+![png](index_files/index_3_3.png)
 
 
 
-![png](index_files/index_4_4.png)
+![png](index_files/index_3_4.png)
 
 
 
-![png](index_files/index_4_5.png)
+![png](index_files/index_3_5.png)
 
 
 
@@ -125,40 +120,34 @@ random_state = None
 
 for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
     classification_simulation(random_state, std)
-
 ```
 
 
-```python
-
-```
-
-
-![png](index_files/index_8_0.png)
+![png](index_files/index_6_0.png)
 
 
 
-![png](index_files/index_8_1.png)
+![png](index_files/index_6_1.png)
 
 
 
-![png](index_files/index_8_2.png)
+![png](index_files/index_6_2.png)
 
 
 
-![png](index_files/index_8_3.png)
+![png](index_files/index_6_3.png)
 
 
 
-![png](index_files/index_8_4.png)
+![png](index_files/index_6_4.png)
 
 
 
-![png](index_files/index_8_5.png)
+![png](index_files/index_6_5.png)
 
 
 
-![png](index_files/index_8_6.png)
+![png](index_files/index_6_6.png)
 
 
 
