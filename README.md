@@ -46,9 +46,34 @@ for n in [10, 25, 40, 50, 100, 200]:
 ```
 
 
+![png](index_files/index_3_0.png)
+
+
+
+![png](index_files/index_3_1.png)
+
+
+
+![png](index_files/index_3_2.png)
+
+
+
+![png](index_files/index_3_3.png)
+
+
+
+![png](index_files/index_3_4.png)
+
+
+
+![png](index_files/index_3_5.png)
+
+
+
 ```python
 # __SOLUTION__ 
 import matplotlib.pyplot as plt
+%matplotlib inline
 from sklearn.datasets import make_regression
 from sklearn.linear_model import LinearRegression
 import numpy as np
@@ -61,7 +86,7 @@ def reg_simulation(n, random_state):
     reg = LinearRegression().fit(X, y)
     plt.plot(X[:, 0], reg.predict(X), color="black", label="Model")
     plt.title("Noise: " +str (n)+ ", R-Squared: " + str(round(reg.score(X,y), 2)))
-    plt.tick_params(labelbottom='off', labelleft='off')
+    plt.tick_params(labelbottom=False, labelleft=False)
     plt.xlabel("Variable X")
     plt.ylabel("Variable Y")
     plt.legend()
@@ -100,35 +125,6 @@ for n in [10, 25, 40, 50, 100, 200]:
 
 
 ```python
-
-```
-
-
-![png](index_files/index_5_0.png)
-
-
-
-![png](index_files/index_5_1.png)
-
-
-
-![png](index_files/index_5_2.png)
-
-
-
-![png](index_files/index_5_3.png)
-
-
-
-![png](index_files/index_5_4.png)
-
-
-
-![png](index_files/index_5_5.png)
-
-
-
-```python
 # __SOLUTION__ 
 # You comments here 
 ```
@@ -157,6 +153,65 @@ For this you need to perform following tasks
 
 
 ```python
+# import necessary ibraries
+
+from sklearn.svm import LinearSVC
+
+def classification_simulation(random_state, std):
+
+    # Create X, y (2 classes) and make a color coded scatter plot
+    
+    # Fit an SVM model
+    # clf = LinearSVC().fit(X, y)
+
+    # get the Separating hyperplane i.e. the decision boundary
+    # w = clf.coef_[0]
+    # a = -w[0] / w[1]
+    # xx = np.linspace(-10, 10)
+    # yy = a * xx - (clf.intercept_[0]) / w[1]
+
+    # plot the decision line with xx and yy calculated above
+    
+
+    # label and show the plot
+    pass
+
+random_state = None
+
+for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
+    classification_simulation(random_state, std)
+```
+
+
+![png](index_files/index_8_0.png)
+
+
+
+![png](index_files/index_8_1.png)
+
+
+
+![png](index_files/index_8_2.png)
+
+
+
+![png](index_files/index_8_3.png)
+
+
+
+![png](index_files/index_8_4.png)
+
+
+
+![png](index_files/index_8_5.png)
+
+
+
+![png](index_files/index_8_6.png)
+
+
+
+```python
 # __SOLUTION__ 
 from sklearn.datasets import make_blobs
 from sklearn.svm import LinearSVC
@@ -167,7 +222,8 @@ def classification_simulation(random_state, std):
     plt.scatter(X[y == 0, 0], X[y == 0, 1], color="red", s=10, label="Class A")
     plt.scatter(X[y == 1, 0], X[y == 1, 1], color="blue", s=10, label="Class B")
 
-    clf = LinearSVC().fit(X, y)
+    # Increase iterations to ensure convergence
+    clf = LinearSVC(max_iter=4000).fit(X, y)
 
     # get the separating hyperplane
     w = clf.coef_[0]
@@ -178,7 +234,7 @@ def classification_simulation(random_state, std):
     # plot the line, the points, and the nearest vectors to the plane
     plt.plot(xx, yy, 'k-', color="black", label="Model")
 
-    plt.tick_params(labelbottom='off', labelleft='off')
+    plt.tick_params(labelbottom=False, labelleft=False)
     plt.xlabel("X")
     plt.ylabel("Y")
     plt.legend()
@@ -188,8 +244,6 @@ random_state = np.random.RandomState(2)
 
 for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
     classification_simulation(random_state, std)
-
-
 ```
 
 
@@ -222,74 +276,9 @@ for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
 
 
 ```python
-# import necessary ibraries
-
-from sklearn.svm import LinearSVC
-
-def classification_simulation(random_state, std):
-
-    # Create X, y (2 classes) and make a color coded scatter plot
-    
-    # Fit an SVM model
-    # clf = LinearSVC().fit(X, y)
-
-    # get the Separating hyperplane i.e. the decision boundary
-    # w = clf.coef_[0]
-    # a = -w[0] / w[1]
-    # xx = np.linspace(-10, 10)
-    # yy = a * xx - (clf.intercept_[0]) / w[1]
-
-    # plot the decision line with xx and yy calculated above
-    
-
-    # label and show the plot
-    pass
-
-random_state = None
-
-for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
-    classification_simulation(random_state, std)
-
-```
-
-
-```python
 # __SOLUTION__ 
 # You comments here 
 ```
-
-
-```python
-
-```
-
-
-![png](index_files/index_12_0.png)
-
-
-
-![png](index_files/index_12_1.png)
-
-
-
-![png](index_files/index_12_2.png)
-
-
-
-![png](index_files/index_12_3.png)
-
-
-
-![png](index_files/index_12_4.png)
-
-
-
-![png](index_files/index_12_5.png)
-
-
-
-![png](index_files/index_12_6.png)
-
 
 
 ```python
