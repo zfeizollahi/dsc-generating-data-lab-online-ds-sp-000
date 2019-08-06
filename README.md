@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab, we shall practice some of the data generation techniques that we saw in earlier lesson to generate datasets for regression and classification purposes. We shall run a couple of simple simulations to help us generate different dataset by controlling noise and variance parameters in the data generation process. We shall look at the statistical indicators and visual output to see how these parameters effect the accuracy of an algorithm. 
+In this lab, we shall practice some of the data generation techniques that we saw in earlier lesson to generate datasets for regression and classification purposes. We shall run a couple of simple simulations to help us generate different dataset by controlling noise and variance parameters in the data generation process. We shall look at the statistical indicators and visual output to see how these parameters affect the accuracy of an algorithm. 
 
 ## Objectives
 You will be able to:
@@ -13,13 +13,13 @@ You will be able to:
 
 ## Task 1
 
-Create a function `reg_simulation()` to run a regression simulation creating a number of datasets with `make_regression()` data generation function. Perform following tasks:
+Create a function `reg_simulation()` to run a regression simulation creating a number of datasets with the `make_regression()` data generation function. Perform following tasks:
 
 * Create `reg_simulation()` with n (noise) and random state input parameters
-    * Make a regression dataset (X,y) with 100 samples using  given noise value and random state
-    * Plot the data as scatter plot 
+    * Make a regression dataset (X,y) with 100 samples using a given noise value and random state
+    * Plot the data as a scatter plot 
     * Calculate and plot a regression line on the plot and calculate R2 (you can do this in statsmodels or sklearn)
-    * Label the plot with noise, and calculated r-squared
+    * Label the plot with the noise value and the calculated r-squared
     
 * Pass a fixed random state and values from `[10, 25, 40, 50, 100, 200]` as noise values iteratively to the function above. 
 * Inspect and comment on the output.
@@ -136,17 +136,17 @@ for n in [10, 25, 40, 50, 100, 200]:
 
 ## Task 2
 
-As above, we shall now try to run a classification problem using a Linear SVM classifier. This will be covered in detail in an upcoming section, so here we shall give you the necessary code for fitting the classifier and calculating the decision boundary. The idea here to keep the code simple and focus the effect of generated data on the classifier performance. 
+As above, we shall now try to tackle a classification problem using a Linear SVM classifier. This will be covered in more detail in an upcoming section, so here we'll give you the necessary code for fitting the classifier and calculating the decision boundary. The idea here is to keep the code simple and focus on understanding the effect the generated data has on the classifier's performance. 
 
-For this you need to perform following tasks 
-* Create classification_simulation function with random state and std (standard deviation) as input parameters
-    * Use `make_blobs()` to create a classification dataset with 100 samples, 2 features/centres and use provided random state and standard deviation values for placing data
+For this you need to perform the following tasks 
+* Create the function classification_simulation with random state and std (standard deviation) as input parameters
+    * Use `make_blobs()` to create a classification dataset with 100 samples, 2 features/centers and use provided random state and standard deviation values for placing data
     * Plot the values on a scatter plot, while color coding both classes
     * Use unsupervised SVM to classify the data (given)
     * Calculate the decision boundary from SVM output (given)
-    * Plot the decision boundary on the scatter plot
+    * Plot the decision boundary on a scatter plot
    
-* Pass a fixed random state and values from [0,0.5, 1, 1.5, 2, 2.5, 3]] as standard deviation (std) values iteratively to the function above.
+* Pass a fixed random state and standard deviation (std) values from [0, 0.5, 1, 1.5, 2, 2.5, 3] iteratively to the function above.
 
 * Inspect and comment on the output.
 
