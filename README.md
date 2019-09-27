@@ -37,6 +37,69 @@ df = pd.DataFrame(dict(x=X[:, 0], y=X[:, 1], label=y))
 df.head()
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x</th>
+      <th>y</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-2.988372</td>
+      <td>8.828627</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.722930</td>
+      <td>3.026972</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-3.053580</td>
+      <td>9.125209</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.461939</td>
+      <td>3.869963</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.867339</td>
+      <td>3.280312</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 Create a scatter plot of the data, while color-coding the different classes.
 
 _Hint: You may find this dictionary mapping class labels to colors useful: 
@@ -57,6 +120,10 @@ grouped = df.groupby('label')
 for key, group in grouped:
     group.plot(ax=ax,kind='scatter', x ='x', y='y', label=key, color=colors[key])
 ```
+
+
+![png](index_files/index_7_0.png)
+
 
 Repeat this exercise two times by setting `cluster_std = 0.5` and `cluster_std = 2`. 
 
@@ -85,6 +152,10 @@ for key, group in grouped:
 ```
 
 
+![png](index_files/index_9_0.png)
+
+
+
 ```python
 
 X, y = make_blobs(n_samples=200, centers=2, n_features=2, cluster_std=2, random_state=42)
@@ -97,6 +168,10 @@ grouped = df.groupby('label')
 for key, group in grouped:
     group.plot(ax=ax,kind='scatter', x ='x', y='y', label=key, color=colors[key])
 ```
+
+
+![png](index_files/index_10_0.png)
+
 
 
 ```python
@@ -155,6 +230,30 @@ random_state = np.random.RandomState(42)
 for n in [10, 25, 40, 50, 100, 200]:
     reg_simulation(n, random_state)
 ```
+
+
+![png](index_files/index_13_0.png)
+
+
+
+![png](index_files/index_13_1.png)
+
+
+
+![png](index_files/index_13_2.png)
+
+
+
+![png](index_files/index_13_3.png)
+
+
+
+![png](index_files/index_13_4.png)
+
+
+
+![png](index_files/index_13_5.png)
+
 
 
 ```python
