@@ -13,13 +13,157 @@ You will be able to:
 
 ## Task 1
 
-Create a function `reg_simulation()` to run a regression simulation creating a number of datasets with the `make_regression()` data generation function. Perform following tasks:
+Use `make_blobs()` to create a binary classification dataset with 100 samples, 2 features, and 2 centers (where each center corresponds to a different class label). Set `random_state = 42` for reproducibility.
 
-* Create `reg_simulation()` with n (noise) and random state input parameters
+_Hint: Here's a link to the documentation for_ [`make_blobs()`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html).
+
+
+```python
+# your code here 
+
+# import relevant libraries 
+```
+
+
+```python
+# __SOLUTION__
+
+# import relevant libraries
+import pandas as pd 
+from sklearn.datasets import make_blobs
+
+X, y = make_blobs(n_samples=100, centers=2, n_features=2, random_state=42)
+```
+
+Place the data in a `pandas DataFrame` called `df`, and inspect the first five rows of the data. 
+
+_Hint: Your dataframe should have three columns in total, two for the features and one for the class label._ 
+
+
+```python
+# your code here 
+```
+
+
+```python
+# __SOLUTION__
+df = pd.DataFrame(dict(x=X[:, 0], y=X[:, 1], label=y))
+df.head()
+```
+
+Create a scatter plot of the data, while color-coding the different classes.
+
+_Hint: You may find this dictionary mapping class labels to colors useful: 
+`colors = {0: 'red', 1: 'blue'}`_
+
+
+```python
+# your code here 
+
+# import relevant libraries 
+```
+
+
+```python
+# __SOLUTION__
+
+# import relevant libraries
+import matplotlib.pyplot as plt 
+%matplotlib inline 
+
+colors = {0: 'red', 1: 'blue'}
+
+fig, ax = plt.subplots()
+grouped = df.groupby('label')
+
+for key, group in grouped:
+    group.plot(ax=ax,kind='scatter', x ='x', y='y', label=key, color=colors[key])
+```
+
+Repeat this exercise two times by setting `cluster_std = 0.5` and `cluster_std = 2`. 
+
+Keep all other parameters passed to `make_blobs` equal. 
+
+That is:
+* Create a classification dataset with 100 samples, 2 features, and 2 centers using `make_blobs`. 
+    * Set `random_state = 42` for reproducibility, and pass the appropriate value for `cluster_std`. 
+* Place the data in a `pandas DataFrame` called `df`. 
+* Plot the values on a scatter plot, while color-coding the different classes.
+
+What is the effect of changing `cluster_std`, based on your plots? 
+
+
+```python
+# Your code here: 
+# cluster_std = 0.5
+```
+
+
+```python
+# Your code here: 
+# clusted_std = 2
+```
+
+
+```python
+# __SOLUTION__
+
+X, y = make_blobs(n_samples=200, centers=2, n_features=2, cluster_std=0.5, random_state=42)
+df = pd.DataFrame(dict(x=X[:, 0],  y=X[:, 1], label=y))
+colors = {0: 'red', 1: 'blue'}
+
+fig, ax = plt.subplots()
+grouped = df.groupby('label')
+
+for key, group in grouped:
+    group.plot(ax=ax,kind='scatter', x ='x', y='y', label=key, color=colors[key])
+```
+
+
+```python
+# __SOLUTION__
+
+X, y = make_blobs(n_samples=200, centers=2, n_features=2, cluster_std=2, random_state=42)
+df = pd.DataFrame(dict(x=X[:, 0],  y=X[:, 1], label=y))
+colors = {0: 'red', 1: 'blue'}
+
+fig, ax = plt.subplots()
+grouped = df.groupby('label')
+
+for key, group in grouped:
+    group.plot(ax=ax,kind='scatter', x ='x', y='y', label=key, color=colors[key])
+```
+
+
+```python
+# Your answer here 
+```
+
+
+```python
+# __SOLUTION__
+
+# When setting `cluster_std = 0.5` and keeping all other parameters the same, 
+# we obtain two different clusters centered at the same positions as beforehand, 
+# but the points in each cluster are closer to the centers of the clusters. 
+# 
+# When setting `cluster_std = 2` and keeping all other parameters equal, 
+# we obtain two different clusters centers at the same positions as beforehand,
+# but more spread out about the centers of the clusters. 
+# 
+# `cluster_std` controls the spread of the data about the center of the clusters 
+# we've created. 
+```
+
+## Task 2
+
+Create a function `reg_simulation()` to run a regression simulation creating a number of datasets with the `make_regression()` data generation function. Perform the following tasks:
+
+* Create `reg_simulation()` with `n` (noise) and `random_state` as input parameters
     * Make a regression dataset (X,y) with 100 samples using a given noise value and random state
     * Plot the data as a scatter plot 
-    * Calculate and plot a regression line on the plot and calculate R2 (you can do this in statsmodels or sklearn)
-    * Label the plot with the noise value and the calculated r-squared
+    * Calculate and plot a regression line on the plot and calculate $R^2$ (you can do this in statsmodels or sklearn)
+    * Label the plot with the noise value and the calculated $R^2$.
     
 * Pass a fixed random state and values from `[10, 25, 40, 50, 100, 200]` as noise values iteratively to the function above. 
 * Inspect and comment on the output.
@@ -46,38 +190,15 @@ for n in [10, 25, 40, 50, 100, 200]:
 ```
 
 
-![png](index_files/index_3_0.png)
-
-
-
-![png](index_files/index_3_1.png)
-
-
-
-![png](index_files/index_3_2.png)
-
-
-
-![png](index_files/index_3_3.png)
-
-
-
-![png](index_files/index_3_4.png)
-
-
-
-![png](index_files/index_3_5.png)
-
-
-
 ```python
 # __SOLUTION__ 
+
 import matplotlib.pyplot as plt
 %matplotlib inline
 from sklearn.datasets import make_regression
 from sklearn.linear_model import LinearRegression
 import numpy as np
-plt.xkcd()
+
 def reg_simulation(n, random_state):
     X, y = make_regression(n_samples=100, n_features=1, noise=n, random_state=random_state)
 
@@ -100,191 +221,17 @@ for n in [10, 25, 40, 50, 100, 200]:
 ```
 
 
-![png](index_files/index_4_0.png)
-
-
-
-![png](index_files/index_4_1.png)
-
-
-
-![png](index_files/index_4_2.png)
-
-
-
-![png](index_files/index_4_3.png)
-
-
-
-![png](index_files/index_4_4.png)
-
-
-
-![png](index_files/index_4_5.png)
-
+```python
+# Your comments here
+```
 
 
 ```python
 # __SOLUTION__ 
-# You comments here 
-```
 
-
-```python
-# You comments here 
-```
-
-## Task 2
-
-As above, we shall now try to tackle a classification problem using a Linear SVM classifier. This will be covered in more detail in an upcoming section, so here we'll give you the necessary code for fitting the classifier and calculating the decision boundary. The idea here is to keep the code simple and focus on understanding the effect the generated data has on the classifier's performance. 
-
-For this you need to perform the following tasks 
-* Create the function classification_simulation with random state and std (standard deviation) as input parameters
-    * Use `make_blobs()` to create a classification dataset with 100 samples, 2 features/centers and use provided random state and standard deviation values for placing data
-    * Plot the values on a scatter plot, while color coding both classes
-    * Use unsupervised SVM to classify the data (given)
-    * Calculate the decision boundary from SVM output (given)
-    * Plot the decision boundary on a scatter plot
-   
-* Pass a fixed random state and standard deviation (std) values from [0, 0.5, 1, 1.5, 2, 2.5, 3] iteratively to the function above.
-
-* Inspect and comment on the output.
-
-
-
-```python
-# import necessary ibraries
-
-from sklearn.svm import LinearSVC
-
-def classification_simulation(random_state, std):
-
-    # Create X, y (2 classes) and make a color coded scatter plot
-    
-    # Fit an SVM model
-    # clf = LinearSVC().fit(X, y)
-
-    # get the Separating hyperplane i.e. the decision boundary
-    # w = clf.coef_[0]
-    # a = -w[0] / w[1]
-    # xx = np.linspace(-10, 10)
-    # yy = a * xx - (clf.intercept_[0]) / w[1]
-
-    # plot the decision line with xx and yy calculated above
-    
-
-    # label and show the plot
-    pass
-
-random_state = None
-
-for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
-    classification_simulation(random_state, std)
-```
-
-
-![png](index_files/index_8_0.png)
-
-
-
-![png](index_files/index_8_1.png)
-
-
-
-![png](index_files/index_8_2.png)
-
-
-
-![png](index_files/index_8_3.png)
-
-
-
-![png](index_files/index_8_4.png)
-
-
-
-![png](index_files/index_8_5.png)
-
-
-
-![png](index_files/index_8_6.png)
-
-
-
-```python
-# __SOLUTION__ 
-from sklearn.datasets import make_blobs
-from sklearn.svm import LinearSVC
-
-def classification_simulation(random_state, std):
-    X, y = make_blobs(n_samples=100, n_features=2, centers=2, cluster_std=std, random_state=random_state)
-
-    plt.scatter(X[y == 0, 0], X[y == 0, 1], color="red", s=10, label="Class A")
-    plt.scatter(X[y == 1, 0], X[y == 1, 1], color="blue", s=10, label="Class B")
-
-    # Increase iterations to ensure convergence
-    clf = LinearSVC(max_iter=4000).fit(X, y)
-
-    # get the separating hyperplane
-    w = clf.coef_[0]
-    a = -w[0] / w[1]
-    xx = np.linspace(-10, 10)
-    yy = a * xx - (clf.intercept_[0]) / w[1]
-
-    # plot the line, the points, and the nearest vectors to the plane
-    plt.plot(xx, yy, 'k-', color="black", label="Model")
-
-    plt.tick_params(labelbottom=False, labelleft=False)
-    plt.xlabel("X")
-    plt.ylabel("Y")
-    plt.legend()
-    plt.show()
-
-random_state = np.random.RandomState(2)
-
-for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
-    classification_simulation(random_state, std)
-```
-
-
-![png](index_files/index_9_0.png)
-
-
-
-![png](index_files/index_9_1.png)
-
-
-
-![png](index_files/index_9_2.png)
-
-
-
-![png](index_files/index_9_3.png)
-
-
-
-![png](index_files/index_9_4.png)
-
-
-
-![png](index_files/index_9_5.png)
-
-
-
-![png](index_files/index_9_6.png)
-
-
-
-```python
-# __SOLUTION__ 
-# You comments here 
-```
-
-
-```python
-# You comments here 
+# As the noise level increases, the coefficient of determination of our model fit decreases. 
 ```
 
 ## Summary 
 
-In this lesson, we learned how to generate random datasets in classification and regression contexts. we ran two simulations for this and fitted simple models to view the effect of random data parameters including noise level and std on the performance of parameters, visually as well as objectively. These skills will come in handy while testing model performance and robustness in future. 
+In this lesson, we learned how to generate random datasets for classification and regression contexts. We ran simulations for this and fitted simple models to view the effect of random data parameters including noise level and std on the performance of parameters, visually as well as objectively. These skills will come in handy while testing model performance and robustness in future. 
