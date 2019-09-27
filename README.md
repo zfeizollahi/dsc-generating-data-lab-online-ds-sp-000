@@ -13,13 +13,76 @@ You will be able to:
 
 ## Task 1
 
-Create a function `reg_simulation()` to run a regression simulation creating a number of datasets with the `make_regression()` data generation function. Perform following tasks:
+Use `make_blobs()` to create a binary classification dataset with 100 samples, 2 features, and 2 centers (where each center corresponds to a different class label). Set `random_state = 42` for reproducibility.
 
-* Create `reg_simulation()` with n (noise) and random state input parameters
+_Hint: Here's a link to the documentation for_ [`make_blobs()`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_blobs.html).
+
+
+```python
+# your code here 
+
+# import relevant libraries 
+```
+
+Place the data in a `pandas DataFrame` called `df`, and inspect the first five rows of the data. 
+
+_Hint: Your dataframe should have three columns in total, two for the features and one for the class label._ 
+
+
+```python
+# your code here 
+```
+
+Create a scatter plot of the data, while color-coding the different classes.
+
+_Hint: You may find this dictionary mapping class labels to colors useful: 
+`colors = {0: 'red', 1: 'blue'}`_
+
+
+```python
+# your code here 
+
+# import relevant libraries 
+```
+
+Repeat this exercise two times by setting `cluster_std = 0.5` and `cluster_std = 2`. 
+
+Keep all other parameters passed to `make_blobs` equal. 
+
+That is:
+* Create a classification dataset with 100 samples, 2 features, and 2 centers using `make_blobs`. 
+    * Set `random_state = 42` for reproducibility, and pass the appropriate value for `cluster_std`. 
+* Place the data in a `pandas DataFrame` called `df`. 
+* Plot the values on a scatter plot, while color-coding the different classes.
+
+What is the effect of changing `cluster_std`, based on your plots? 
+
+
+```python
+# Your code here: 
+# cluster_std = 0.5
+```
+
+
+```python
+# Your code here: 
+# clusted_std = 2
+```
+
+
+```python
+# Your answer here 
+```
+
+## Task 2
+
+Create a function `reg_simulation()` to run a regression simulation creating a number of datasets with the `make_regression()` data generation function. Perform the following tasks:
+
+* Create `reg_simulation()` with `n` (noise) and `random_state` as input parameters
     * Make a regression dataset (X,y) with 100 samples using a given noise value and random state
     * Plot the data as a scatter plot 
-    * Calculate and plot a regression line on the plot and calculate R2 (you can do this in statsmodels or sklearn)
-    * Label the plot with the noise value and the calculated r-squared
+    * Calculate and plot a regression line on the plot and calculate $R^2$ (you can do this in statsmodels or sklearn)
+    * Label the plot with the noise value and the calculated $R^2$.
     
 * Pass a fixed random state and values from `[10, 25, 40, 50, 100, 200]` as noise values iteratively to the function above. 
 * Inspect and comment on the output.
@@ -46,115 +109,10 @@ for n in [10, 25, 40, 50, 100, 200]:
 ```
 
 
-![png](index_files/index_3_0.png)
-
-
-
-![png](index_files/index_3_1.png)
-
-
-
-![png](index_files/index_3_2.png)
-
-
-
-![png](index_files/index_3_3.png)
-
-
-
-![png](index_files/index_3_4.png)
-
-
-
-![png](index_files/index_3_5.png)
-
-
-
 ```python
-# You comments here 
-```
-
-## Task 2
-
-As above, we shall now try to tackle a classification problem using a Linear SVM classifier. This will be covered in more detail in an upcoming section, so here we'll give you the necessary code for fitting the classifier and calculating the decision boundary. The idea here is to keep the code simple and focus on understanding the effect the generated data has on the classifier's performance. 
-
-For this you need to perform the following tasks 
-* Create the function classification_simulation with random state and std (standard deviation) as input parameters
-    * Use `make_blobs()` to create a classification dataset with 100 samples, 2 features/centers and use provided random state and standard deviation values for placing data
-    * Plot the values on a scatter plot, while color coding both classes
-    * Use unsupervised SVM to classify the data (given)
-    * Calculate the decision boundary from SVM output (given)
-    * Plot the decision boundary on a scatter plot
-   
-* Pass a fixed random state and standard deviation (std) values from [0, 0.5, 1, 1.5, 2, 2.5, 3] iteratively to the function above.
-
-* Inspect and comment on the output.
-
-
-
-```python
-# import necessary ibraries
-
-from sklearn.svm import LinearSVC
-
-def classification_simulation(random_state, std):
-
-    # Create X, y (2 classes) and make a color coded scatter plot
-    
-    # Fit an SVM model
-    # clf = LinearSVC().fit(X, y)
-
-    # get the Separating hyperplane i.e. the decision boundary
-    # w = clf.coef_[0]
-    # a = -w[0] / w[1]
-    # xx = np.linspace(-10, 10)
-    # yy = a * xx - (clf.intercept_[0]) / w[1]
-
-    # plot the decision line with xx and yy calculated above
-    
-
-    # label and show the plot
-    pass
-
-random_state = None
-
-for std in [0,0.5, 1, 1.5, 2, 2.5, 3]:
-    classification_simulation(random_state, std)
-```
-
-
-![png](index_files/index_6_0.png)
-
-
-
-![png](index_files/index_6_1.png)
-
-
-
-![png](index_files/index_6_2.png)
-
-
-
-![png](index_files/index_6_3.png)
-
-
-
-![png](index_files/index_6_4.png)
-
-
-
-![png](index_files/index_6_5.png)
-
-
-
-![png](index_files/index_6_6.png)
-
-
-
-```python
-# You comments here 
+# Your comments here
 ```
 
 ## Summary 
 
-In this lesson, we learned how to generate random datasets in classification and regression contexts. we ran two simulations for this and fitted simple models to view the effect of random data parameters including noise level and std on the performance of parameters, visually as well as objectively. These skills will come in handy while testing model performance and robustness in future. 
+In this lesson, we learned how to generate random datasets for classification and regression contexts. We ran simulations for this and fitted simple models to view the effect of random data parameters including noise level and std on the performance of parameters, visually as well as objectively. These skills will come in handy while testing model performance and robustness in future. 
