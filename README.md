@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab, we shall practice some of the data generation techniques that we saw in earlier lesson to generate datasets for regression and classification purposes. We shall run a couple of simple simulations to help us generate different dataset by controlling noise and variance parameters in the data generation process. We shall look at the statistical indicators and visual output to see how these parameters affect the accuracy of an algorithm. 
+In this lab, we shall practice some of the data generation techniques that we saw in an earlier lesson in order to generate datasets for regression and classification purposes. We shall run a couple of simple simulations to help us generate different datasets by controlling noise and variance parameters in the data generation process. We shall look at the statistical indicators and visual output to see how these parameters affect the accuracy of an algorithm. 
 
 ## Objectives
 You will be able to:
@@ -115,4 +115,4 @@ for n in [10, 25, 40, 50, 100, 200]:
 
 ## Summary 
 
-In this lesson, we learned how to generate random datasets for classification and regression contexts. We ran simulations for this and fitted simple models to view the effect of random data parameters including noise level and std on the performance of parameters, visually as well as objectively. These skills will come in handy while testing model performance and robustness in future. 
+In this lesson, we learned how to generate random datasets for classification and regression contexts. We ran simulations for this and fitted simple models to view the effect of random data parameters including noise level and std on the performance of parameters, visually as well as objectively. These skills will come in handy while testing model performance and robustness in the future. 
