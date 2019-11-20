@@ -46,10 +46,10 @@ Repeat this exercise two times by setting `cluster_std = 0.5` and `cluster_std =
 Keep all other parameters passed to `make_blobs()` equal. 
 
 That is:
-* Create a classification dataset with 100 samples, 2 features, and 2 centers using `make_blobs()`. 
-    * Set `random_state = 42` for reproducibility, and pass the appropriate value for `cluster_std`. 
-* Place the data in a `pandas` DataFrame called `df`. 
-* Plot the values on a scatter plot, while color-coding the different classes.
+* Create a classification dataset with 100 samples, 2 features, and 2 centers using `make_blobs()` 
+    * Set `random_state = 42` for reproducibility, and pass the appropriate value for `cluster_std`  
+* Place the data in a `pandas` DataFrame called `df`  
+* Plot the values on a scatter plot, while color-coding the different classes 
 
 What is the effect of changing `cluster_std` based on your plots? 
 
@@ -67,7 +67,7 @@ What is the effect of changing `cluster_std` based on your plots?
 
 
 ```python
-# Your answer here 
+# Your comments here
 ```
 
 ## Generate data for regression
@@ -78,10 +78,10 @@ Create a function `reg_simulation()` to run a regression simulation creating a n
     * Make a regression dataset (X, y) with 100 samples using a given noise value and random state
     * Plot the data as a scatter plot 
     * Calculate and plot a regression line on the plot and calculate $R^2$ (you can do this in `statsmodels` or `sklearn`)
-    * Label the plot with the noise value and the calculated $R^2$.
+    * Label the plot with the noise value and the calculated $R^2$ 
     
-* Pass a fixed random state and values from `[10, 25, 40, 50, 100, 200]` as noise values iteratively to the function above. 
-* Inspect and comment on the output.
+* Pass a fixed random state and values from `[10, 25, 40, 50, 100, 200]` as noise values iteratively to the function above 
+* Inspect and comment on the output 
 
 
 ```python
