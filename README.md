@@ -19,8 +19,6 @@ _Hint: Here's a link to the documentation for_ [`make_blobs()`](https://scikit-l
 
 
 ```python
-
-import pandas as pd 
 from sklearn.datasets import make_blobs
 
 X, y = make_blobs(n_samples=100, centers=2, n_features=2, random_state=42)
@@ -32,6 +30,7 @@ _Hint: Your dataframe should have three columns in total, two for the features a
 
 
 ```python
+import pandas as pd 
 df = pd.DataFrame(dict(x=X[:, 0], y=X[:, 1], label=y))
 df.head()
 ```
@@ -107,7 +106,7 @@ _Hint: You may find this dictionary mapping class labels to colors useful:
 
 ```python
 
-# import relevant libraries
+# Import relevant libraries
 import matplotlib.pyplot as plt 
 %matplotlib inline 
 
@@ -129,10 +128,10 @@ Repeat this exercise two times by setting `cluster_std = 0.5` and `cluster_std =
 Keep all other parameters passed to `make_blobs()` equal. 
 
 That is:
-* Create a classification dataset with 100 samples, 2 features, and 2 centers using `make_blobs()`. 
-    * Set `random_state = 42` for reproducibility, and pass the appropriate value for `cluster_std`. 
-* Place the data in a `pandas` DataFrame called `df`. 
-* Plot the values on a scatter plot, while color-coding the different classes.
+* Create a classification dataset with 100 samples, 2 features, and 2 centers using `make_blobs()` 
+    * Set `random_state = 42` for reproducibility, and pass the appropriate value for `cluster_std`  
+* Place the data in a `pandas` DataFrame called `df`  
+* Plot the values on a scatter plot, while color-coding the different classes 
 
 What is the effect of changing `cluster_std` based on your plots? 
 
@@ -195,14 +194,15 @@ Create a function `reg_simulation()` to run a regression simulation creating a n
     * Make a regression dataset (X, y) with 100 samples using a given noise value and random state
     * Plot the data as a scatter plot 
     * Calculate and plot a regression line on the plot and calculate $R^2$ (you can do this in `statsmodels` or `sklearn`)
-    * Label the plot with the noise value and the calculated $R^2$.
+    * Label the plot with the noise value and the calculated $R^2$ 
     
-* Pass a fixed random state and values from `[10, 25, 40, 50, 100, 200]` as noise values iteratively to the function above. 
-* Inspect and comment on the output.
+* Pass a fixed random state and values from `[10, 25, 40, 50, 100, 200]` as noise values iteratively to the function above 
+* Inspect and comment on the output 
 
 
 ```python
 
+# Import necessary libraries
 import matplotlib.pyplot as plt
 %matplotlib inline
 from sklearn.datasets import make_regression
