@@ -75,31 +75,31 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>-2.988372</td>
       <td>8.828627</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>5.722930</td>
       <td>3.026972</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>-3.053580</td>
       <td>9.125209</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>5.461939</td>
       <td>3.869963</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>4.867339</td>
       <td>3.280312</td>
       <td>1</td>
@@ -163,7 +163,7 @@ What is the effect of changing `cluster_std` based on your plots?
 ```python
 # __SOLUTION__
 
-X, y = make_blobs(n_samples=200, centers=2, n_features=2, cluster_std=0.5, random_state=42)
+X, y = make_blobs(n_samples=100, centers=2, n_features=2, cluster_std=0.5, random_state=42)
 df = pd.DataFrame(dict(x=X[:, 0],  y=X[:, 1], label=y))
 colors = {0: 'red', 1: 'blue'}
 
@@ -188,7 +188,7 @@ for key, group in grouped:
 ```python
 # __SOLUTION__
 
-X, y = make_blobs(n_samples=200, centers=2, n_features=2, cluster_std=2, random_state=42)
+X, y = make_blobs(n_samples=100, centers=2, n_features=2, cluster_std=2, random_state=42)
 df = pd.DataFrame(dict(x=X[:, 0],  y=X[:, 1], label=y))
 colors = {0: 'red', 1: 'blue'}
 
